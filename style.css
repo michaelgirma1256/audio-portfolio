@@ -388,3 +388,6 @@
     grid-template-columns: 1fr; /* Stacks items vertically on small screens */
   }
 }
+.portfolio-item {
+  break-inside: avoid; /* Prevents grid items from splitting across columns */
+}
