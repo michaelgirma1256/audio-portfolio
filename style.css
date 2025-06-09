@@ -472,3 +472,96 @@
     grid-template-columns: 1fr;
   }
 }
+/* ===== STATS SECTION ===== */
+.stats {
+    background: var(--dark);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  .stats::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    opacity: 0.1;
+    z-index: -1;
+  }
+  
+  .section-subtitle {
+    color: var(--gray);
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 15px;
+    min-width: 220px;
+    border: 1px solid rgba(255, 85, 0, 0.3);
+    transition: transform 0.3s;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 85, 0, 0.1);
+  }
+  
+  /* Slow Counter Styling */
+.counter {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--primary), #ff8c00, #ff5500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .counter::after {
+    content: '+';
+    position: absolute;
+    right: -20px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .counter[data-target]:not([data-target="0"])::after {
+    opacity: 1; /* Only show "+" when counting completes */
+  }
+  
+  .stat-card {
+    transition: all 0.5s;
+  }
+  
+  .stat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 85, 0, 0.2);
+  }
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .stats-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .counter::after {
+    transition-delay: 1s; /* Extra drama */
+  }
