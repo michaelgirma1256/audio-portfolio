@@ -35,3 +35,44 @@ form.addEventListener('submit', async (e) => {
     alert('Oops! Something went wrong.');
   }
 });
+// Improved Counter Animation
+// Ultra-Slow Counter Animation
+let countersAnimated = false;
+
+function animateCounters() {
+  if (countersAnimated) return;
+  
+  const counters = document.querySelectorAll('.counter');
+  const duration = 8000; // 8 SECONDS per counter (adjust this)
+  let completed = 0;
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const startTime = Date.now();
+    
+    const updateCount = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * target);
+      
+      counter.innerText = current === target ? target + '+' : current;
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        completed++;
+        if (completed === counters.length) countersAnimated = true;
+      }
+    };
+    
+    requestAnimationFrame(updateCount);
+  });
+}
+
+// Smooth scroll trigger (same as before)
+function handleScroll() {
+  const statsSection = document.querySelector('.stats');
+  const sectionTop = statsSection.getBoundingClientRect().top;
+  if (sectionTop < window.innerHeight * 0.75) animateCounters();
+}
+window.addEventListener('scroll', handleScroll);
