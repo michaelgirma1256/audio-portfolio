@@ -27,13 +27,24 @@
   </nav>
 
   <!-- ===== HERO SECTION ===== -->
-  <section id="home" class="hero">
-    <div class="container">
-      <h1>Live Audio & Video Technician</h1>
-      <p>Bringing crystal-clear sound to concerts, tours, and live events worldwide.</p>
-      <a href="#portfolio" class="btn">View My Work</a>
-    </div>
-  </section>
+<section class="hero">
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline poster="images/hero-fallback.jpg">
+      <source src="images/hero-bg2.mp4" type="video/mp4">
+      <source src="images/hero-bg2-webm.webm" type="video/webm">
+      <!-- Fallback image if video can't load -->
+      <img src="images/hero-fallback.jpg" alt="Live Event Setup">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <div class="container">
+    <h1>Live Audio & Video Engineer</h1>
+    <p>Bringing crystal-clear production to concerts, festivals, and live events</p>
+    <a href="#portfolio" class="btn">View My Work</a>
+  </div>
+</section>
 
   <!-- ===== ABOUT SECTION ===== -->
 <section id="about" class="about">
